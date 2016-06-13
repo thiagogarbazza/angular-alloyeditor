@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-strict-di>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../bower_components/alloyeditor/dist/alloy-editor/assets/alloy-editor-ocean-min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+
+    <div  ng-app="appDemo" ng-controller="AppController as ctrl" >
+      <form name="myForm" class="">
+        <input type="checkbox" ng-model="ctrl.model.readonly">
+        <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.value" readonly="ctrl.model.readonly"></alloy-editor>
+
+          <pre>Controller = {{ctrl | json}}  </pre>
+          <pre>Form = {{myForm | json}}  </pre>
+      </form>
+    </div>
+
+    <script type="text/javascript" src="../bower_components/alloyeditor/dist/alloy-editor/alloy-editor-all-min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../src/angular-alloyeditor.js"></script>
+
+    <script type="text/javascript">
+      angular.module('appDemo', ['alloyeditor']);
+      angular.module('appDemo').controller('AppController', [
+        '$scope',
+        function AppController($scope) {
+          var self = this;
+
+          self.model={
+            value : '<div id=Inner><h1>Lorem Ipsum</h1></div> baboseiras'
+          };
+        }
+      ]);
+    </script>
+  </body>
+</html>
