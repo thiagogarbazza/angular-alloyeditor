@@ -1,0 +1,25 @@
+{
+  "name": "angular-alloyeditor",
+  "version": "0.0.1",
+  "description": "AlloyEditor directive for Angular.",
+  "main": "angular-alloyeditor.js",
+  "authors": [
+    "Thiago Garbazza <thiagogarbazza@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "alloyeditor",
+    "alloy",
+    "editor",
+    "WYSIWYG",
+    "angular",
+    "directive",
+    "javascript",
+    "text"
+  ],
+  "homepage": "https://github.com/thiagogarbazza/angular-alloyeditor",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+  ]
+}

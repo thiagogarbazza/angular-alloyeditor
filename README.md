@@ -1,1 +1,6 @@
-# angular-alloyeditor
+# angular-alloyeditor #
+
+
+AlloyEditor directive for Angular.
+
+## Install ## 

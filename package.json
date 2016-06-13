@@ -1,0 +1,33 @@
+{
+  "name": "angular-alloyeditor",
+  "version": "0.0.1",
+  "description": "AlloyEditor directive for Angular.",
+  "main": "angular-alloyeditor.js",
+  "scripts": {
+    "install": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagogarbazza/angular-alloyeditor.git"
+  },
+  "keywords": [
+    "alloyeditor",
+    "alloy",
+    "editor",
+    "WYSIWYG",
+    "angular",
+    "directive",
+    "javascript",
+    "text"
+  ],
+  "author": "Thiago Garbazza <thiagogarbazza@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thiagogarbazza/angular-alloyeditor/issues"
+  },
+  "homepage": "https://github.com/thiagogarbazza/angular-alloyeditor#readme",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
