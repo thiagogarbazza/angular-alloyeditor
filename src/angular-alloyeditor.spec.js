@@ -1,15 +1,28 @@
 describe('angular-alloyeditor', () => {
+
+  var compiler, scope;
+
   beforeEach(module('alloyeditor'));
 
-  var compile, scope;
-
   beforeEach(inject(($compile, $rootScope) => {
-    compile = $compile;
+    compiler = (html) => {
+      var element = $compile(html)(scope);
+      scope.$digest();
+      return element;
+    };
+  }));
+
+  beforeEach(inject(($rootScope) => {
     scope = $rootScope.$new();
   }));
 
-  it('simple run test', () => {
-    expect('test').toEqual('test');
+  describe('model', () => {
+    it('should be ngModel required',  () => {
+      var htmlCompiler = () => {
+        compiler('<alloy-editor></alloy-editor>');
+      };
+      expect(htmlCompiler).toThrowError(/ngModel(.)*alloyEditor$/);
+    });
   });
 
 });

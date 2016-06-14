@@ -37,7 +37,6 @@
             if(newValue != oldValue){
               controller.nativeEditor().setReadOnly(!! newValue);
             }
-            console.log('read', newValue);
           });
 
           controller.onEvent('focus', function syncTouched() {
