@@ -156,7 +156,7 @@
       return {
         restrict: 'E',
         scope: {
-          readonly: '&',
+          readonly: '=',
           toolbar: '&'
         },
         require: ['alloyEditor', 'ngModel'],

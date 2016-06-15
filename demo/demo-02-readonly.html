@@ -9,8 +9,8 @@
 
     <div  ng-app="appDemo" ng-controller="AppController as ctrl" >
       <form name="myForm" class="">
-        <input type="checkbox" ng-model="ctrl.model.readonly">
-        <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.value" readonly="ctrl.model.readonly"></alloy-editor>
+        <input type="checkbox" ng-model="ctrl.editor.isReadonly">
+        <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.value" readonly="ctrl.editor.isReadonly"></alloy-editor>
 
           <pre>Controller = {{ctrl | json}}  </pre>
           <pre>Form = {{myForm | json}}  </pre>
@@ -30,6 +30,10 @@
 
           self.model={
             value : '<div id=Inner><h1>Lorem Ipsum</h1></div> baboseiras'
+          };
+
+          self.editor = {
+            isReadonly: false
           };
         }
       ]);
