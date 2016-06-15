@@ -17,12 +17,18 @@
     '$q',
     function alloyEditorDirective ($q) {
 
+      function preLink($scope, $element, $attributes, $controllers) {
+        var controller = $controllers[0];
+        var ngModelController = $controllers[1];
+        var editorElement = $element.find('div');
+        editorElement.attr('id', $attributes.id + '-content');
+        controller.createInstance(editorElement.attr('id'));
+      }
+
       function postLink($scope, $element, $attributes, $controllers) {
         var controller = $controllers[0];
         var ngModelController = $controllers[1];
-
         var editorElement = $element.find('div');
-        controller.editorIsCreate = editorElement.attr('contenteditable') && editorElement.attr('contenteditable').toLowerCase() == 'true';
 
         // Initialize the editor content when it is ready.
         controller.ready().then(function initialize() {
@@ -65,19 +71,21 @@
         '$q', '$scope',
         function alloyEditorController($q, $scope) {
           var self = this;
+          var instance;
           var readyDeferred = $q.defer(); // a deferred to be resolved when the editor is ready
 
           /**
           * create a instance of Editor.
           *
+          * @param {String} elementId
+          *
           * @returns {Object} instance of editor.
           */
-          function createInstance() {
-            if(!self.editorIsCreate) {
-              self.instance = AlloyEditor.editable('myEditorTest');
-              controller.editorIsCreate = true;
-            }
-            return self.instance;
+          self.createInstance = function createInstance(elementId) {
+            instance = AlloyEditor.editable(elementId);
+            self.onEvent('instanceReady', function() {
+              readyDeferred.resolve(true);
+            });
           }
 
           /**
@@ -122,34 +130,39 @@
           };
 
           self.nativeEditor = function nativeEditor() {
-            return self.instance.get('nativeEditor');
+            return instance.get('nativeEditor');
           };
 
           // Destroy editor when the scope is destroyed.
           $scope.$on('$destroy', function onDestroy() {
             // do not delete too fast or pending events will throw errors
             readyDeferred.promise.then(function() {
-              self.instance.destroy();
+              instance.destroy();
             });
-          });
-
-          createInstance();
-          self.onEvent('instanceReady', function() {
-            readyDeferred.resolve(true);
           });
         }
       ];
 
+      function compile(tElement, tAttrs, transclude) {
+        if(!tAttrs.id) {
+          throw Error('The alloy-editor element must have id attribute.');
+        }
+        return {
+          pre: preLink,
+          post: postLink
+        };
+      }
+
       return {
         restrict: 'E',
         scope: {
-          readonly: '=',
+          readonly: '&',
           toolbar: '&'
         },
         require: ['alloyEditor', 'ngModel'],
-        template: '<div id="myEditorTest" class="alloy-editor"></div>',
+        template: '<div class="alloy-editor"></div>',
         controller: controller,
-        link: postLink
+        compile: compile
       };
     }
   ]);
