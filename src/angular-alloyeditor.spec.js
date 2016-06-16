@@ -1,10 +1,10 @@
-describe('angular-alloyeditor', () => {
+describe('angular-alloyeditor', function () {
 
   var $q, compiler, scope;
 
   beforeEach(module('alloyeditor'));
 
-  beforeEach(inject(($rootScope, _$q_, _$timeout_) => {
+  beforeEach(inject(function ($rootScope, _$q_, _$timeout_) {
     scope = $rootScope.$new();
     $q = _$q_;
      $timeout = _$timeout_;
@@ -16,24 +16,24 @@ describe('angular-alloyeditor', () => {
     };
   }));
 
-  beforeEach(inject(($compile) => {
-    compiler = (html) => {
+  beforeEach(inject( function($compile) {
+    compiler = function(html) {
       var element = $compile(html)(scope);
       // scope.$digest();
       return element;
     };
   }));
 
-  describe('create instance', () => {
-    it('should be "id" required.',  () => {
-      var htmlCompiler = () => {
+  describe('create instance', function() {
+    it('should be "id" required.',  function () {
+      var htmlCompiler = function () {
         compiler('<alloy-editor></alloy-editor>');
       };
       expect(htmlCompiler).toThrowError('The alloy-editor element must have id attribute.');
     });
 
-    it('should be "ng-model" required.',  () => {
-      var htmlCompiler = () => {
+    it('should be "ng-model" required.',  function ()  {
+      var htmlCompiler = function () {
         compiler('<alloy-editor id="my-editor"></alloy-editor>');
       };
       expect(htmlCompiler).toThrowError(/ngModel(.)*alloyEditor$/);

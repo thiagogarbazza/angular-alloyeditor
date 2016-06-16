@@ -91,7 +91,7 @@
             });
 
             console.log("teste 03");
-          }
+          };
 
           /**
           * Listen on events of a given type.
