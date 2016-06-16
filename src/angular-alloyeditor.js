@@ -6,16 +6,11 @@
 }(this, function (angular) {
   'use strict';
 
-  // Polyfill setImmediate function.
-  var setImmediate = window && window.setImmediate ? window.setImmediate : function (fn) {
-    setTimeout(fn, 0);
-  };
-
   var module = angular.module('alloyeditor', []);
 
   module.directive('alloyEditor', [
-    '$q',
-    function alloyEditorDirective ($q) {
+    '$q', '$parse', '$timeout',
+    function alloyEditorDirective ($q, $parse, $timeout) {
 
       function preLink($scope, $element, $attributes, $controllers) {
         var controller = $controllers[0];
@@ -39,7 +34,7 @@
             });
           });
 
-          $scope.$watch('readonly', function (newValue, oldValue) {
+          $scope.$watch($attributes.readonly, function (newValue, oldValue) {
             if(newValue != oldValue){
               controller.nativeEditor().setReadOnly(!! newValue);
             }
@@ -47,6 +42,12 @@
 
           controller.onEvent('focus', function syncTouched() {
             ngModelController.$setTouched();
+          });
+
+          // Defer the ready handler calling to ensure that the editor is
+          // completely ready and populated with data.
+          $timeout(function () {
+            $parse($attributes.onready)($scope);
           });
 
         });
@@ -82,10 +83,14 @@
           * @returns {Object} instance of editor.
           */
           self.createInstance = function createInstance(elementId) {
+            console.log("teste 01", elementId,  AlloyEditor, AlloyEditor.editable);
             instance = AlloyEditor.editable(elementId);
+            console.log("teste 02");
             self.onEvent('instanceReady', function() {
               readyDeferred.resolve(true);
             });
+
+            console.log("teste 03");
           }
 
           /**
@@ -102,7 +107,7 @@
 
             function asyncListener() {
               var args = arguments;
-              setImmediate(function () {
+              $timeout(function () {
                 applyListener.apply(null, args);
               });
             }
@@ -155,10 +160,6 @@
 
       return {
         restrict: 'E',
-        scope: {
-          readonly: '=',
-          toolbar: '&'
-        },
         require: ['alloyEditor', 'ngModel'],
         template: '<div class="alloy-editor"></div>',
         controller: controller,
