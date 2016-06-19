@@ -4,7 +4,7 @@
   "description": "AlloyEditor directive for Angular.",
   "main": "angular-alloyeditor.js",
   "scripts": {
-    "install": "bower install",
+    "postinstall": "bower install",
     "test": "karma start --single-run --no-auto-watch"
   },
   "repository": {
@@ -31,7 +31,11 @@
     "angular-mocks": "^1.5.x",
     "bower": "^1.7.9",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
     "jasmine-core": "^2.4.1",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
@@ -39,6 +43,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.0.4",
     "karma-phantomjs-launcher": "^1.0.0",
-    "phantomjs-prebuilt": "^2.1.7"
+    "phantomjs-prebuilt": "^2.1.7",
+    "run-sequence": "^1.2.1"
   }
 }
