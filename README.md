@@ -21,6 +21,32 @@ bower install --save angular-alloyeditor
 npm install --save angular-alloyeditor
 ```
 
+## Usage ##
+
+### Example ###
+
+```html
+<!-- Load files. -->
+<script src="angular/angular.min.js"></script>
+<script src="alloyeditor/dist/alloy-editor/alloy-editor-all-min.js"></script>
+<script src="angular-alloyeditor.js"></script>
+
+<div ng-controller="MyController">
+  <alloy-editor id="myEditor" name="myEditor" ng-model="model.content"></alloy-editor>
+</div>
+```
+
+JavaScript:
+
+```js
+angular.module('app', ['alloyeditor'])
+.controller('MyController', ['$scope', function ($scope) {
+  $scope.model = {
+    content : '<div><h1>Lorem Ipsum</h1></div> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.'
+  };
+}]);
+```
+
 ## License ##
 
 The `angular-alloyeditor` project is under MIT license.
