@@ -61,12 +61,8 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     coverageReporter: {
-      dir: 'coverage/',
-      reporters: [
-       // reporters not supporting the `file` property
-       { type: 'html', subdir: 'report-html' },
-       { type: 'lcov', subdir: 'report-lcov' }
-     ]
+      type: 'lcov', // lcov or lcovonly are required for generating lcov.info files
+      dir: 'coverage/'
     }
   });
 };
