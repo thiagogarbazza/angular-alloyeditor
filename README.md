@@ -27,6 +27,8 @@ npm install --save angular-alloyeditor
 
 ### Example ###
 
+HTML:
+
 ```html
 <!-- Load files. -->
 <script src="angular/angular.min.js"></script>
@@ -48,7 +50,7 @@ angular
 function MyController() {
   var vm = this;
   vm.model = {
-    content: '<h1>AlloyEditor</h1> <p>Yes, you can edit this content. <strong>Right here and right now</strong>.</p>'
+    content: '<h1>AlloyEditor</h1><p>Yes, you can edit this content. <strong>Right here and right now</strong>.</p>'
   };
 }
 
