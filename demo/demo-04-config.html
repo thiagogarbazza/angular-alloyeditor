@@ -11,8 +11,7 @@
 
   <div ng-app="appDemo" ng-controller="AppController as ctrl">
     <form name="myForm" class="">
-      <label><input type="checkbox" ng-model="ctrl.editor.isReadonly"> is readyonly?</label>
-      <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.content" readonly="ctrl.editor.isReadonly"></alloy-editor>
+      <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.content" config="ctrl.editor.config"></alloy-editor>
 
       <pre>Controller = {{ctrl | json}}  </pre>
       <pre>Form = {{myForm | json}}  </pre>
@@ -35,8 +34,9 @@
         content: '<h1>AlloyEditor</h1> <p>Yes, you can edit this content. <strong>Right here and right now</strong>.</p>'
       };
 
-      vm.editor = {
-        isReadonly: false
+      vm.editor = {};
+      vm.editor.config = {
+
       };
     }
   </script>

@@ -48,7 +48,7 @@ angular
 function MyController()) {
   var vm = this;
   vm.model = {
-    content : 'Yes, you can edit this content. <strong>Right here and right now</strong>.'
+    content: '<h1>AlloyEditor</h1> <p>Yes, you can edit this content. <strong>Right here and right now</strong>.</p>'
   };
 }
 
