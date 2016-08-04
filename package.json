@@ -1,6 +1,6 @@
 {
   "name": "angular-alloyeditor",
-  "version": "0.0.2",
+  "version": "0.0.3-SNAPSHOT",
   "description": "AlloyEditor directive for Angular.",
   "main": "src/angular-alloyeditor.js",
   "scripts": {
