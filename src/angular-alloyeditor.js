@@ -89,9 +89,10 @@
     function preLink($scope, $element, $attributes, $controllers) {
       var alloyEditorCtrl = $controllers[0];
       var editorElement = $element.find('div');
-      editorElement.attr('id', $attributes.id + '-content');
+      var editorID = $attributes.id + '-content';
+      editorElement.attr('id', editorID);
       var config = $parse($attributes.config)($scope);
-      alloyEditorCtrl.createInstance(editorElement.attr('id'), config);
+      alloyEditorCtrl.createInstance(editorID, config);
     }
   }
 

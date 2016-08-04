@@ -1,7 +1,7 @@
-# angular-alloyeditor #
+# angular-alloyeditor
 
-[![Build Status](https://travis-ci.org/thiagogarbazza/angular-alloyeditor.svg?branch=master)](https://travis-ci.org/thiagogarbazza/angular-alloyeditor)
-[![Coverage Status](https://coveralls.io/repos/github/thiagogarbazza/angular-alloyeditor/badge.svg?branch=master)](https://coveralls.io/github/thiagogarbazza/angular-alloyeditor?branch=master)
+[![Build Status](https://travis-ci.org/thiagogarbazza/angular-alloyeditor.svg?branch=0.0.2)](https://travis-ci.org/thiagogarbazza/angular-alloyeditor)
+[![Coverage Status](https://coveralls.io/repos/github/thiagogarbazza/angular-alloyeditor/badge.svg?branch=0.0.2)](https://coveralls.io/github/thiagogarbazza/angular-alloyeditor?branch=0.0.2)
 
 [![Dependency Status](https://david-dm.org/thiagogarbazza/angular-alloyeditor.svg?theme=shields.io)](https://david-dm.org/thiagogarbazza/angular-alloyeditor)
 [![DevDependency Status](https://david-dm.org/thiagogarbazza/angular-alloyeditor/dev-status.svg?theme=shields.io)](https://david-dm.org/thiagogarbazza/angular-alloyeditor#info=devDependencies)
@@ -9,26 +9,25 @@
 
 [AlloyEditor] directive for Angular.
 
-## Install ##
+## Install
 
-### Using Bower ###
+### Using Bower
 
 ```sh
 bower install --save angular-alloyeditor
 ```
 
-### Using NPM ###
+### Using NPM
 
 ```sh
 npm install --save angular-alloyeditor
 ```
 
-## Usage ##
+## Usage
 
-### Example ###
+### Example
 
 HTML:
-
 ```html
 <!-- Load files. -->
 <script src="angular/angular.min.js"></script>
@@ -41,7 +40,6 @@ HTML:
 ```
 
 JavaScript:
-
 ```js
 angular
   .module('app', ['alloyeditor'])
@@ -53,12 +51,19 @@ function MyController() {
     content: '<h1>AlloyEditor</h1><p>Yes, you can edit this content. <strong>Right here and right now</strong>.</p>'
   };
 }
-
 ```
 
-## License ##
+### Settings
+* ng-model: binding the view into the model.
+* readonly: is a property that it allows you enable or disable editor.
+* onready: call this function after create instance of the editor.
+* config: allows you to configure the editor in the way you prefer.
+
+
+## License
 
 The `angular-alloyeditor` project is under MIT license.
 
 
 [AlloyEditor]: https://alloyeditor.com/ "AlloyEditor a modern WYSIWYG editor built on top of CKEDITOR, designed to create modern and gorgeous web content"
+[AlloyEditor Configuration]: http://alloyeditor.com/guides/editor_configuration/ "AlloyEditor allows you to configure the editor in the way you prefer"
