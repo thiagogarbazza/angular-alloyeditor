@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html ng-strict-di>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../bower_components/alloyeditor/dist/alloy-editor/assets/alloy-editor-ocean-min.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
 
-    <div  ng-app="appDemo" ng-controller="AppController as ctrl" >
-      <form name="myForm" class="">
-        <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.value" onready="ctrl.editor.onReady()"></alloy-editor>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../bower_components/alloyeditor/dist/alloy-editor/assets/alloy-editor-ocean-min.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-          <pre>Controller = {{ctrl | json}}  </pre>
-          <pre>Form = {{myForm | json}}  </pre>
-      </form>
-    </div>
+<body>
 
-    <script type="text/javascript" src="../bower_components/alloyeditor/dist/alloy-editor/alloy-editor-all-min.js"></script>
-    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="../src/angular-alloyeditor.js"></script>
+  <div ng-app="appDemo" ng-controller="AppController as ctrl">
+    <form name="myForm" class="">
+      <alloy-editor id="myInput" name="myInput" ng-model="ctrl.model.value" onready="ctrl.editor.onReady()"></alloy-editor>
 
-    <script type="text/javascript">
-      angular.module('appDemo', ['alloyeditor']);
-      angular.module('appDemo').controller('AppController', [
-        '$scope',
-        function AppController($scope) {
-          var self = this;
+      <pre>Controller = {{ctrl | json}}  </pre>
+      <pre>Form = {{myForm | json}}  </pre>
+    </form>
+  </div>
 
-          self.model={
-            value : '<div><h1>Lorem Ipsum</h1></div> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.'
-          };
+  <script type="text/javascript" src="../bower_components/alloyeditor/dist/alloy-editor/alloy-editor-all-min.js"></script>
+  <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="../src/angular-alloyeditor.js"></script>
 
-          self.editor = {};
-          self.editor.onReady = function() {
-            alert('Finish ready....');
-          };
-        }
-      ]);
-    </script>
-  </body>
+  <script type="text/javascript">
+    angular
+      .module('appDemo', ['alloyeditor'])
+      .controller('AppController', AppController);
+
+    function AppController() {
+      var vm = this;
+
+      vm.model = {
+        value: '<div><h1>Lorem Ipsum</h1></div> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.'
+      };
+
+      vm.editor = {};
+      vm.editor.onReady = function() {
+        alert('Finish ready....');
+      };
+    }
+  </script>
+</body>
+
 </html>

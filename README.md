@@ -41,12 +41,17 @@ npm install --save angular-alloyeditor
 JavaScript:
 
 ```js
-angular.module('app', ['alloyeditor'])
-.controller('MyController', ['$scope', function ($scope) {
-  $scope.model = {
-    content : '<div><h1>Lorem Ipsum</h1></div> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.'
+angular
+  .module('app', ['alloyeditor'])
+  .controller('MyController', MyController);
+
+function MyController()) {
+  var vm = this;
+  vm.model = {
+    content : 'Yes, you can edit this content. <strong>Right here and right now</strong>.'
   };
-}]);
+}
+
 ```
 
 ## License ##
