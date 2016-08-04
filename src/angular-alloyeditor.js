@@ -90,7 +90,8 @@
       var alloyEditorCtrl = $controllers[0];
       var editorElement = $element.find('div');
       editorElement.attr('id', $attributes.id + '-content');
-      alloyEditorCtrl.createInstance(editorElement.attr('id'));
+      var config = $parse($attributes.config)($scope);
+      alloyEditorCtrl.createInstance(editorElement.attr('id'), config);
     }
   }
 
@@ -126,11 +127,12 @@
      * Invoke create method on AlloyEditor passing the ID of the node you want to edit.
      *
      * @param {String} elementId Id of the node you want to edit.
+     * @param {Object} config Configuration of this instance by AlloyEditor.
      *
      * @returns {Object} Instance of AlloyEditor.
      */
-    function createInstance(elementId) {
-      instance = AlloyEditor.editable(elementId);
+    function createInstance(elementId, config) {
+      instance = AlloyEditor.editable(elementId, config);
       onEvent('instanceReady', function() {
         readyDeferred.resolve(true);
       });
