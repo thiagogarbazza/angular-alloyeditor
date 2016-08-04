@@ -14,8 +14,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/alloyeditor/dist/alloy-editor/alloy-editor-all.js',
-      'bower_components/angular/angular.js',
+      'node_modules/alloyeditor/dist/alloy-editor/alloy-editor-all.js',
+      'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'src/**/**.js'
     ],
