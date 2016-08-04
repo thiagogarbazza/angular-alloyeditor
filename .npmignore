@@ -1,0 +1,6 @@
+.editorconfig
+.gitignore
+.eslintignore
+.jsbeautifyrc
+*spec.js
+

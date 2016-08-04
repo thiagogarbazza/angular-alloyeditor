@@ -20,7 +20,15 @@
   "homepage": "https://github.com/thiagogarbazza/angular-alloyeditor",
   "ignore": [
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "demo",
+    "src",
+    ".editorconfig",
+    ".eslint*",
+    ".jsbeautifyrc",
+    ".coveralls.yml",
+    ".travis.yml",
+    "karma.conf.js"
   ],
   "dependencies": {
     "alloyeditor": "^1.2.2"

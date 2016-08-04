@@ -1,0 +1,20 @@
+{
+  "env": {
+    "amd": true
+  },
+  "extends": [
+    "restrict/es-5",
+    "restrict/angular-1"
+  ],
+  "globals": {
+    "module": true,
+    "AlloyEditor": false
+  },
+  "rules": {
+    "id-blacklist": "off",
+    "angular/component-limit": "off",
+    "angular/file-name": "off",
+    "angular/typecheck-function": "off",
+    "angular/typecheck-object": "off"
+  }
+}

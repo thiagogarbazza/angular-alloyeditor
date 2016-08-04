@@ -11,12 +11,6 @@ gulp.task('clean', () => {
 	.pipe(clean());
 });
 
-gulp.task('jshint', () => {
-	return gulp.src('src/**/*.js')
-	.pipe(jshint())
-	.pipe(jshint.reporter('jshint-stylish'));
-});
-
 gulp.task('copy', () => {
 	return gulp.src('src/angular-alloyeditor.js')
 	.pipe(gulp.dest('dist/'));
@@ -32,5 +26,5 @@ gulp.task('uglify', () => {
 });
 
 gulp.task('default', (cb) => {
-	return runSequence('clean', ['jshint', 'copy'], 'uglify', cb)
+	return runSequence('clean', ['copy'], 'uglify', cb)
 });
