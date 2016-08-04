@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/thiagogarbazza/angular-alloyeditor#readme",
   "devDependencies": {
-    "angular-mocks": "^1.5.x",
+    "angular-mocks": "^1.5.3",
     "bower": "^1.7.9",
     "coveralls": "^2.11.9",
     "eslint-config-restrict": "0.0.1",
@@ -45,5 +45,9 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "phantomjs-prebuilt": "^2.1.7",
     "run-sequence": "^1.2.1"
+  },
+  "dependencies": {
+    "alloyeditor": "^1.2.2",
+    "angular": "^1.5.3"
   }
 }
