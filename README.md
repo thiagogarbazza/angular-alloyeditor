@@ -45,7 +45,7 @@ angular
   .module('app', ['alloyeditor'])
   .controller('MyController', MyController);
 
-function MyController()) {
+function MyController() {
   var vm = this;
   vm.model = {
     content: '<h1>AlloyEditor</h1> <p>Yes, you can edit this content. <strong>Right here and right now</strong>.</p>'
