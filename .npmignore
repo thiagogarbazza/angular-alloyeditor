@@ -3,4 +3,12 @@
 .eslintignore
 .jsbeautifyrc
 *spec.js
+**/*.log
+
+node_modules/
+npm**.log
+bower_components/
+coverage/
+demo/
+dist/
 

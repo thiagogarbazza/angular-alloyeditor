@@ -4,7 +4,6 @@
   "description": "AlloyEditor directive for Angular.",
   "main": "src/angular-alloyeditor.js",
   "scripts": {
-    "postinstall": "bower install",
     "test": "karma start --single-run --no-auto-watch"
   },
   "repository": {
