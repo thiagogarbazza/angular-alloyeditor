@@ -54,10 +54,10 @@ function MyController() {
 ```
 
 ### Settings
-* ng-model: binding the view into the model.
-* readonly: is a property that it allows you enable or disable editor.
-* onready: call this function after create instance of the editor.
-* config: allows you to configure the editor in the way you prefer.
+* _ng-model_: binding the view into the model.
+* _readonly_: is a property that it allows you enable or disable editor.
+* _onready_: call this function after create instance of the editor.
+* _config_: allows you to configure the editor in the way you prefer.
 
 
 ## License
