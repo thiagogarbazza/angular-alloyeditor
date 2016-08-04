@@ -52,11 +52,7 @@
           });
         });
 
-        $scope.$watch($attributes.readonly, function(newValue, oldValue) {
-          if (newValue !== oldValue) {
-            alloyEditorCtrl.nativeEditor().setReadOnly(Boolean(newValue));
-          }
-        });
+        $scope.$watch($attributes.readonly, readonlyWatch);
 
         alloyEditorCtrl.onEvent('focus', function syncTouched() {
           ngModelCtrl.$setTouched();
@@ -67,6 +63,12 @@
         $timeout(function() {
           $parse($attributes.onready)($scope);
         });
+      }
+
+      function readonlyWatch(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          alloyEditorCtrl.nativeEditor().setReadOnly(Boolean(newValue));
+        }
       }
 
       function syncEditor() {
