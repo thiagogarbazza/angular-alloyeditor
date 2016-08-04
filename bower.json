@@ -32,6 +32,6 @@
   ],
   "dependencies": {
     "alloyeditor": "^1.2.2",
-    "angular": "~1.5.x"
+    "angular": "^1.5.3"
   }
 }
