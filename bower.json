@@ -2,7 +2,7 @@
   "name": "angular-alloyeditor",
   "version": "0.0.2",
   "description": "AlloyEditor directive for Angular.",
-  "main": "angular-alloyeditor.js",
+  "main": "src/angular-alloyeditor.js",
   "authors": [
     "Thiago Garbazza <thiagogarbazza@gmail.com>"
   ],
@@ -31,10 +31,7 @@
     "karma.conf.js"
   ],
   "dependencies": {
-    "alloyeditor": "^1.2.2"
-  },
-  "devDependencies": {
-    "angular": "~1.5.x",
-    "jquery": "~1.12.x"
+    "alloyeditor": "^1.2.2",
+    "angular": "~1.5.x"
   }
 }
